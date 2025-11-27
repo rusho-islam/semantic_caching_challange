@@ -1,0 +1,42 @@
+[project]
+name = "semantic-caching-challange"
+version = "0.1.0"
+description = "semantic caching challange"
+readme = "README.md"
+requires-python = "==3.11.10"
+dependencies = [
+    "fastapi>=0.115.6",
+    "pandas>=2.2.3",
+    "transformers==4.54.1",
+    "sentence-transformers==5.0.0",
+    "python-dotenv==1.1.1",
+    "langchain==0.3.25",
+    "langchain-ollama==0.3.3",
+    "langchain-openai==0.3.3",
+    "langgraph==0.5.4",
+    "langsmith==0.1.147",
+    "jaro-winkler==2.0.3",
+    "seaborn==0.13.2",
+    "fuzzywuzzy==0.18.0",
+    "redis==6.4.0",
+    "uvicorn==0.38.0",
+    "ipynb==0.5.1",
+    "ipykernel==7.0.1",
+    "timebudget==0.7.1"
+]
+
+[dependency-groups]
+dev = [
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
+
+[tool.setuptools]
+packages = ["prophet"]

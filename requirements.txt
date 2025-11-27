@@ -1,0 +1,14 @@
+transformers==4.54.1
+sentence-transformers==5.0.0
+redis==6.4.0
+python-dotenv==1.1.1
+
+langchain==0.3.25
+langchain-ollama==0.3.3
+langchain-openai==0.3.3
+langgraph==0.5.4
+langsmith==0.1.147
+uvicorn==0.38.0
+ipynb==0.5.1
+ipykernel==7.0.1
+timebudget==0.7.1
