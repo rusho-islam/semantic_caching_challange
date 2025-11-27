@@ -41,7 +41,7 @@ Copy `.env.example` to `.env` and fill in your OpenAI key and other variables as
 docker-compose up --build
 ```
 
-- The FastAPI server will be available at: `http://localhost:8010`
+- The FastAPI server will be available at: `http://localhost:3000`
 - Ollama server at: `http://localhost:11434`
 - Redis at: `localhost:6379`
 
@@ -58,7 +58,12 @@ docker-compose up --build
 ### Example Request
 
 ```bash
-curl -X POST "http://localhost:8010/query" -H "Content-Type: application/json" -d '{"question": "What is semantic caching?"}'
+curl --location --request GET 'http://localhost:3000/query/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "query": "whats the capital of farnce?",
+        "forceRefresh": true
+    }'
 ```
 
 ---
@@ -103,7 +108,7 @@ To run/tests locally:
 uv pip install -r requirements.txt
 
 # Run FastAPI server
-uvicorn service:app --reload --host 0.0.0.0 --port 8010
+uvicorn service:app --reload --host 0.0.0.0 --port 3000
 ```
 
 ---
