@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    networks:
+      - semantic-caching
+
+  ollama:
+    build:
+      context: ./dockerfiles/ollama
+      dockerfile: Dockerfile
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - semantic-caching
+    entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
+
+  fastapi:
+    build: .
+    ports:
+      - "8010:8010"
+    depends_on:
+      - redis
+      - ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    networks:
+      - semantic-caching
+
+networks:
+  semantic-caching:
+    driver: bridge
+
+volumes:
+  redis_data:
+  ollama_data:
