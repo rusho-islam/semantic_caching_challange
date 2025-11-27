@@ -30,6 +30,6 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Copy the rest of the application code
 COPY . .
 
-EXPOSE 8010
+EXPOSE 3000
 
 CMD ["uv", "run", "service.py"]

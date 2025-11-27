@@ -25,7 +25,7 @@ services:
   fastapi:
     build: .
     ports:
-      - "8010:8010"
+      - "3000:3000"
     depends_on:
       - redis
       - ollama
